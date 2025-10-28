@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Whitelist Runner IP
-        uses: novuhq/clickhouse-cloud-whitelist-ip@v1
+        uses: novuhq/clickhouse-cloud-whitelist-ip-action@v1
         with:
           clickhouse-org-id: ${{ secrets.CLICKHOUSE_ORG_ID }}
           clickhouse-service-id: ${{ secrets.CLICKHOUSE_SERVICE_ID }}
@@ -56,7 +56,7 @@ The action outputs the whitelisted IP address:
 ```yaml
 - name: Whitelist Runner IP
   id: whitelist
-  uses: novuhq/clickhouse-cloud-whitelist-ip@v1
+  uses: novuhq/clickhouse-cloud-whitelist-ip-action@v1
   with:
     clickhouse-org-id: ${{ secrets.CLICKHOUSE_ORG_ID }}
     clickhouse-service-id: ${{ secrets.CLICKHOUSE_SERVICE_ID }}

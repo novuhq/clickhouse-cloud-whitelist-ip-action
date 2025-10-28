@@ -1,5 +1,5 @@
 {
-  "name": "clickhouse-cloud-whitelist-ip",
+  "name": "clickhouse-cloud-whitelist-ip-action",
   "version": "1.0.0",
   "description": "GitHub Action to whitelist runner IP in ClickHouse Cloud with automatic cleanup",
   "main": "dist/index.js",
