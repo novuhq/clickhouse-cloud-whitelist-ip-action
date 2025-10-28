@@ -1,0 +1,34 @@
+name: Example Usage
+
+on:
+  workflow_dispatch:
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Whitelist Runner IP
+        id: whitelist
+        uses: ./
+        with:
+          clickhouse-org-id: ${{ secrets.CLICKHOUSE_ORG_ID }}
+          clickhouse-service-id: ${{ secrets.CLICKHOUSE_SERVICE_ID }}
+          clickhouse-api-key-id: ${{ secrets.CLICKHOUSE_API_KEY_ID }}
+          clickhouse-api-key-secret: ${{ secrets.CLICKHOUSE_API_KEY_SECRET }}
+
+      - name: Display whitelisted IP
+        run: |
+          echo "Runner IP whitelisted: ${{ steps.whitelist.outputs.runner-ip }}"
+
+      - name: Simulate ClickHouse operations
+        run: |
+          echo "Performing database operations..."
+          sleep 5
+          echo "Operations complete!"
+
+      # Cleanup happens automatically here
+      # The IP will be removed from the allowlist
+

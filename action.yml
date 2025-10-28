@@ -1,0 +1,32 @@
+name: 'ClickHouse Cloud IP Whitelist'
+description: 'Automatically whitelist GitHub Actions runner IP in ClickHouse Cloud with cleanup'
+author: 'Noti-fire Apps Ltd.'
+
+branding:
+  icon: 'lock'
+  color: 'yellow'
+
+inputs:
+  clickhouse-org-id:
+    description: 'ClickHouse Cloud Organization ID'
+    required: true
+  clickhouse-service-id:
+    description: 'ClickHouse Cloud Service ID'
+    required: true
+  clickhouse-api-key-id:
+    description: 'ClickHouse Cloud API Key ID'
+    required: true
+  clickhouse-api-key-secret:
+    description: 'ClickHouse Cloud API Key Secret'
+    required: true
+
+outputs:
+  runner-ip:
+    description: 'The IP address of the GitHub Actions runner that was whitelisted'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+  post: 'dist/cleanup.js'
+  post-if: 'always()'
+

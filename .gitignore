@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+
+# TypeScript build output
+# NOTE: dist/ is NOT ignored because GitHub Actions needs it!
+# The bundled JS files in dist/ must be committed to the repo
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
